@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Ops, parece que você não está logado ainda.\nFaça login novamente ou cadastre-se!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_entrar_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="ENTRAR"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

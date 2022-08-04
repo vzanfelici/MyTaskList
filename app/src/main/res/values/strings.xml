@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">My Task List</string>
+    <string name="menu_drawer_sair">Sair</string>
+    <string name="menu_drawer_settings">Configurações</string>
+    <string name="menu_drawer_minha_conta">Minha Conta</string>
+    <string name="menu_drawer_stats">Minhas Estatísticas</string>
+    <string name="menu_drawer_calendario">Calendário</string>
+    <string name="menu_drawer_home">Home</string>
+    <string name="toogle_open">open</string>
+    <string name="toogle_close">close</string>
+    <string name="settings_titulo">Configurações</string>
+    <string name="usuario_cadastro_nome">Nome</string>
+    <string name="usuario_cadastro_sobrenome">Sobrenome</string>
+    <string name="usuario_cadastro_email">Email</string>
+    <string name="usuario_perfil_atualizar">Atualizar</string>
+    <string name="usuario_perfil_titulo">Perfil do Usuário</string>
+    <string name="msg_perfil_sucesso">Usuário atualizado com sucesso!</string>
+    <string name="msg_login">Email e senha inválidos!</string>
+    <string name="usuario_cadastro_senha">Senha</string>
+    <string name="usuario_cadastro_cadastrar">Cadastrar</string>
+    <string name="usuario_login_entrar">Entrar</string>
+    <string name="usuario_login_titulo">Login de Usuário</string>
+    <string name="usuario_cadastro_titulo">Cadastro de Usuário</string>
+    <string name="calendario_titulo">Calendário de Tarefas</string>
+    <string name="tarefa_cadastro_nome">Nome</string>
+    <string name="tarefa_cadastro_data">Data de Realização</string>
+    <string name="tarefa_cadastro_hora">Horário</string>
+    <string name="tarefa_cadastro_titulo">Cadastro de Tarefa</string>
+    <string name="tarefa_atualizar_titulo">Atualizar Tarefa</string>
+    <string name="tarefa_atualizar_nome">Nome</string>
+    <string name="tarefa_atualizar_data">Data de Realização</string>
+    <string name="tarefa_atualizar_hora">Horário</string>
+    <string name="tarefa_cadastro_categoria">Categoria</string>
+    <string name="usuario_estatistica_titulo">Estatísticas do Usuário</string>
+    <string name="configuracoes_titulo">Configurações</string>
+    <string name="categorias_titulo">Categorias</string>
+    <string name="categoria_adicionar_nome">Nome da Categoria</string>
+    <string name="atividades_categorias_titulo">Atividades por Categoria</string>
+
+
+    <string-array name="categorias">
+        <item>-selecione-</item>
+    </string-array>
+
+    <string-array name="tema_name">
+        <item>-selecione-</item>
+        <item>Rosa</item>
+        <item>Azul</item>
+        <item>Cinza</item>
+        <item>Verde</item>
+        <item>Roxo</item>
+        <item>Amarelo</item>
+    </string-array>
+
+    <string-array name="tema_values">
+        <item>-selecione-</item>
+        <item>#FF00FB</item>
+        <item>#0091EA</item>
+        <item>#636161</item>
+        <item>#64DD17</item>
+        <item>#AA00FF</item>
+        <item>#FFD600</item>
+    </string-array>
+
+</resources>

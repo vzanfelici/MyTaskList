@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="PRINCIPAL">
+        <menu>
+            <group>
+
+                <item android:id="@+id/nav_home"
+                    android:title="@string/menu_drawer_home"
+                    android:icon="@drawable/ic_home"/>
+
+                <item android:id="@+id/nav_calendar"
+                    android:title="@string/menu_drawer_calendario"
+                    android:icon="@drawable/ic_calendar"/>
+
+            </group>
+        </menu>
+    </item>
+
+
+    <item android:title="PESSOAL">
+        <menu>
+            <group>
+
+                <item android:id="@+id/nav_category"
+                    android:title="Minhas Categorias"
+                    android:icon="@drawable/ic_category"/>
+
+                <item android:id="@+id/nav_stats"
+                    android:title="@string/menu_drawer_stats"
+                    android:icon="@drawable/ic_stats"/>
+
+                <item android:id="@+id/nav_account"
+                    android:title="@string/menu_drawer_minha_conta"
+                    android:icon="@drawable/ic_user"/>
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="SISTEMA">
+        <menu>
+            <group
+                android:id="@+id/grupo">
+
+                <item android:id="@+id/nav_settings"
+                    android:title="@string/menu_drawer_settings"
+                    android:icon="@drawable/ic_settings" />
+
+                <item android:id="@+id/nav_logout"
+                    android:title="@string/menu_drawer_sair"
+                    android:icon="@drawable/ic_logout"/>
+
+            </group>
+        </menu>
+    </item>
+
+</menu>
