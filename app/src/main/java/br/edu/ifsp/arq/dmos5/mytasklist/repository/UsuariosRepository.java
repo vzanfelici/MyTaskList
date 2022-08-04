@@ -178,5 +178,4 @@ public class UsuariosRepository {
 
         return atualizado[0];
     }
-
 }

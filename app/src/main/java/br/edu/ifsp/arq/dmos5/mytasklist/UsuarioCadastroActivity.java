@@ -62,7 +62,8 @@ public class UsuarioCadastroActivity extends AppCompatActivity {
                         "",
                         "",
                         txtEmail.getText().toString(),
-                        txtSenha.getText().toString());
+                        txtSenha.getText().toString(),
+                        0);
 
                 if(validate()){
                     usuarioViewModel.createUsuario(usuario);

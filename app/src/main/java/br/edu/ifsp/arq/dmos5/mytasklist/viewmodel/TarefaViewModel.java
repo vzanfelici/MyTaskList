@@ -13,17 +13,21 @@ import java.util.List;
 import java.util.Optional;
 
 import br.edu.ifsp.arq.dmos5.mytasklist.model.Tarefa;
+import br.edu.ifsp.arq.dmos5.mytasklist.model.Usuario;
 import br.edu.ifsp.arq.dmos5.mytasklist.repository.TarefasRepository;
+import br.edu.ifsp.arq.dmos5.mytasklist.repository.UsuariosRepository;
 
 public class TarefaViewModel extends AndroidViewModel {
 
     public static final String USUARIO_ID = "USUARIO_ID";
 
     public TarefasRepository tarefasRepository;
+    public UsuariosRepository usuariosRepository;
 
     public TarefaViewModel(@NonNull Application application) {
         super(application);
         tarefasRepository = new TarefasRepository(application);
+        usuariosRepository = new UsuariosRepository(application);
     }
 
     public void createTarefa(Tarefa tarefa){
@@ -129,5 +133,9 @@ public class TarefaViewModel extends AndroidViewModel {
 
     public void updateFavoritado(Tarefa tarefa) {
         tarefasRepository.updateFavoritado(tarefa);
+    }
+
+    public LiveData<Usuario> getUsuario(String usuarioId) {
+        return usuariosRepository.load(usuarioId);
     }
 }

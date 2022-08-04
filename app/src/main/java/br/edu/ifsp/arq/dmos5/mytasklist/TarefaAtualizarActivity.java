@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -32,9 +33,11 @@ import java.util.Locale;
 
 import br.edu.ifsp.arq.dmos5.mytasklist.model.Categoria;
 import br.edu.ifsp.arq.dmos5.mytasklist.model.Tarefa;
+import br.edu.ifsp.arq.dmos5.mytasklist.model.Usuario;
 import br.edu.ifsp.arq.dmos5.mytasklist.utils.SortCategoriasClass;
 import br.edu.ifsp.arq.dmos5.mytasklist.viewmodel.CategoriaViewModel;
 import br.edu.ifsp.arq.dmos5.mytasklist.viewmodel.TarefaViewModel;
+import br.edu.ifsp.arq.dmos5.mytasklist.viewmodel.UsuarioViewModel;
 
 public class TarefaAtualizarActivity extends AppCompatActivity {
 
@@ -53,6 +56,7 @@ public class TarefaAtualizarActivity extends AppCompatActivity {
 
     private Tarefa tarefa;
     private TarefaViewModel tarefaViewModel;
+    private UsuarioViewModel usuarioViewModel;
     private CategoriaViewModel categoriaViewModel;
 
     private int option;
@@ -66,6 +70,8 @@ public class TarefaAtualizarActivity extends AppCompatActivity {
 
         tarefaViewModel = new ViewModelProvider(this)
                 .get(TarefaViewModel.class);
+        usuarioViewModel = new ViewModelProvider(this)
+                .get(UsuarioViewModel.class);
         categoriaViewModel = new ViewModelProvider(this)
                 .get(CategoriaViewModel.class);
 
@@ -208,10 +214,23 @@ public class TarefaAtualizarActivity extends AppCompatActivity {
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        String usuarioId = tarefa.getUsuarioId();
+                                        tarefaViewModel.getUsuario(usuarioId).observe(TarefaAtualizarActivity.this, new Observer<Usuario>() {
+                                            @Override
+                                            public void onChanged(Usuario usuario) {
+                                                if (usuario!=null){
+                                                    usuario.setQtdAtividades(usuario.getQtdAtividades()-1);
+                                                    usuarioViewModel.update(usuario);
+                                                }
+                                            }
+                                        });
+
                                         tarefaViewModel.delete(tarefa);
+
                                         Toast.makeText(TarefaAtualizarActivity.this, "Tarefa removida com Sucesso", Toast.LENGTH_SHORT).show();
-                                        finish();
                                         startActivity(new Intent(TarefaAtualizarActivity.this, MainActivity.class));
+
+                                        finish();
                                     }
                                 })
                         .setNegativeButton("Não", null)

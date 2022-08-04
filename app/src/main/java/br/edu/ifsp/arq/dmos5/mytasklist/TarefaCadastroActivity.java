@@ -169,6 +169,9 @@ public class TarefaCadastroActivity extends AppCompatActivity {
 
                                 tarefaViewModel.createTarefa(tarefa);
 
+                                usuario.setQtdAtividades(usuario.getQtdAtividades()+1);
+                                usuarioViewModel.update(usuario);
+
                                 Toast.makeText(TarefaCadastroActivity.this, String.format("Tarefa registrada!\nDia: %s Horário: %s", txtData.getText(), txtHorario.getText()), Toast.LENGTH_SHORT).show();
                             }
 

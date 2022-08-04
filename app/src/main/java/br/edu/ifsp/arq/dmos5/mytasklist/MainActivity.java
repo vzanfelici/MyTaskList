@@ -83,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
     private UsuarioViewModel usuarioViewModel;
     private TarefaViewModel tarefaViewModel;
 
-    private List<String> totalTarefas;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -212,7 +210,6 @@ public class MainActivity extends AppCompatActivity {
         lsvListarTarefasProximosDias = findViewById(R.id.lsv_listar_tarefas_proximos_dias);
         lsvListarTarefasConcluidas = findViewById(R.id.lsv_listar_tarefas_concluidas);
 
-        totalTarefas = new ArrayList<>();
         listTarefasAtrasadas = new ArrayList<>();
         listTarefasHoje = new ArrayList<>();
         listTarefasProximosDias = new ArrayList<>();
@@ -310,13 +307,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     if (i == 0) {
-                        //System.out.println("CAIU AQUI ATRA -I- VAZIO");
                         txtTarefaAtrasadas.setVisibility(View.GONE);
                         lsvListarTarefasAtrasadas.setVisibility(View.GONE);
-                        totalTarefas.add("1");
                     }
-                } else {
-                    //System.out.println("CAIU AQUI ATRA VAZIO");
                 }
             }
         });
@@ -367,13 +360,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     if (i == 0) {
-                        //System.out.println("CAIU AQUI HJ -I- VAZIO");
                         txtTarefaHoje.setVisibility(View.GONE);
                         lsvListarTarefasHoje.setVisibility(View.GONE);
-                        totalTarefas.add("2");
                     }
-                } else {
-                    //System.out.println("CAIU AQUI HJ VAZIO");
                 }
             }
         });
@@ -424,13 +413,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     if (i == 0) {
-                        //System.out.println("CAIU AQUI PROX -I- VAZIO");
                         txtTarefaProximosDias.setVisibility(View.GONE);
                         lsvListarTarefasProximosDias.setVisibility(View.GONE);
-                        totalTarefas.add("3");
                     }
-                } else {
-                    //System.out.println("CAIU AQUI PROX VAZIO");
                 }
             }
         });
@@ -481,13 +466,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     if (i == 0) {
-                        //System.out.println("CAIU AQUI CONCLU -I- VAZIO");
                         txtTarefaConcluidas.setVisibility(View.GONE);
                         lsvListarTarefasConcluidas.setVisibility(View.GONE);
-                        totalTarefas.add("4");
                     }
-                } else {
-                    //System.out.println("CAIU AQUI CONCLU VAZIO");
                 }
             }
         });
@@ -566,11 +547,7 @@ public class MainActivity extends AppCompatActivity {
                     txtNome.setVisibility(View.VISIBLE);
                     txtSemCadastro.setVisibility(View.GONE);
 
-                    System.out.println("TAMANHO:::: "+totalTarefas.size());
-                    for (String a:totalTarefas){
-                        System.out.println("A:: "+a);
-                    }
-                    if(totalTarefas.size()==4){
+                    if (usuario.getQtdAtividades()==0){
                         txtSemTarefa.setVisibility(View.VISIBLE);
                     } else {
                         txtSemTarefa.setVisibility(View.GONE);

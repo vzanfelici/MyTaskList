@@ -22,18 +22,21 @@ public class Usuario implements Serializable {
     private String dataNascimento;
     private String senha;
 
-    public Usuario(String nome, String sobrenome, String dataNascimento, String email, String senha) {
+    private transient int qtdAtividades;
+
+    public Usuario(String nome, String sobrenome, String dataNascimento, String email, String senha, int qntAtividades) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.senha = senha;
+        this.qtdAtividades = qtdAtividades;
     }
 
     @Ignore
     public Usuario(){
-        this("","","","", "");
+        this("","","","", "", 0);
     }
 
     @NonNull
@@ -83,6 +86,14 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getQtdAtividades() {
+        return qtdAtividades;
+    }
+
+    public void setQtdAtividades(int qtdAtividades) {
+        this.qtdAtividades = qtdAtividades;
     }
 
     @Override
