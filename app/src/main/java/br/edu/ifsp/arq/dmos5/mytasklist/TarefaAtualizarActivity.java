@@ -289,8 +289,9 @@ public class TarefaAtualizarActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         if (option==-1){
-            System.out.println("CAIU AQUIIIIIIIII OPTION -1");
             startActivity(new Intent(TarefaAtualizarActivity.this, MainActivity.class));
+        } else {
+            startActivity(new Intent(TarefaAtualizarActivity.this, CalendarioActivity.class));
         }
         return true;
     }

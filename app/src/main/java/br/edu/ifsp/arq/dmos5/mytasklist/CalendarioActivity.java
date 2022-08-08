@@ -15,8 +15,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import br.edu.ifsp.arq.dmos5.mytasklist.adapter.ListarTarefaCalendarioAdapter;
@@ -138,6 +142,52 @@ public class CalendarioActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void atualizarTarefasAtrasadas() {
+        tarefaViewModel.atualizarTarefasAtrasadas().observe(this, new Observer<List<Tarefa>>() {
+            @Override
+            public void onChanged(List<Tarefa> tarefas) {
+                if (tarefas != null) {
+                    for (Tarefa t : tarefas) {
+                        if (t != null) {
+                            CalendarioActivity.this.tarefa = t;
+
+                            Calendar calendarHoje = Calendar.getInstance();
+                            Calendar calendarVencimento = Calendar.getInstance();
+
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date dataTarefa = null;
+                            try {
+                                dataTarefa = simpleDateFormat.parse(tarefa.getData()+" "+tarefa.getHora());
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+
+                            Date hoje = new Date();
+                            calendarHoje.setTime(hoje);
+                            calendarVencimento.setTime(dataTarefa);
+                            if (calendarHoje.after(calendarVencimento)){
+                                tarefa.setAtrasado(true);
+                            } else {
+                                tarefa.setAtrasado(false);
+                            }
+
+                            tarefaViewModel.updateAtrasado(tarefa);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        atualizarTarefasAtrasadas();
+
     }
 
     @Override
